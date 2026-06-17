@@ -7,7 +7,6 @@ import com.learning.ai_starter.model.MovieRecommendation;
 import com.learning.ai_starter.service.StructuredOutputService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;

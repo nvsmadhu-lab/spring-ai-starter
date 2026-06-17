@@ -20,27 +20,27 @@ public class ChatConfig {
                 .build();
     }
 
-    @Bean
-    public ChatMemory chatMemory() {
-        // ✅ MessageWindowChatMemory replaces InMemoryChatMemory in 1.0.0
-        return MessageWindowChatMemory.builder()
-                .maxMessages(20)  // remembers last 20 messages
-                .build();
-    }
-
-    // ChatClient with memory for chat conversations
-    @Bean
-    public ChatClient chatClientWithMemory(ChatModel chatModel, ChatMemory chatMemory) {
-        return ChatClient.builder(chatModel)
-                .defaultSystem("""
-                        You are a helpful assistant.
-                        Remember everything the user tells you.
-                        """)
-                .defaultAdvisors(
-                        MessageChatMemoryAdvisor.builder(chatMemory).build()
-                )
-                .build();
-    }
+//    @Bean
+//    public ChatMemory chatMemory() {
+//        // ✅ MessageWindowChatMemory replaces InMemoryChatMemory in 1.0.0
+//        return MessageWindowChatMemory.builder()
+//                .maxMessages(20)  // remembers last 20 messages
+//                .build();
+//    }
+//
+//    // ChatClient with memory for chat conversations
+//    @Bean
+//    public ChatClient chatClientWithMemory(ChatModel chatModel, ChatMemory chatMemory) {
+//        return ChatClient.builder(chatModel)
+//                .defaultSystem("""
+//                        You are a helpful assistant.
+//                        Remember everything the user tells you.
+//                        """)
+//                .defaultAdvisors(
+//                        MessageChatMemoryAdvisor.builder(chatMemory).build()
+//                )
+//                .build();
+//    }
 
 
 }

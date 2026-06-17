@@ -1,9 +1,7 @@
 package com.learning.ai_starter.controller;
 
 import com.learning.ai_starter.service.AiService;
-import com.learning.ai_starter.service.impl.AiServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

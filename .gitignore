@@ -40,3 +40,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Never commit actual properties with keys
+src/main/resources/application.properties

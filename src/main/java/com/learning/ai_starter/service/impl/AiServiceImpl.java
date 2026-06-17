@@ -37,10 +37,10 @@ public class AiServiceImpl implements AiService {
         return chatClient.prompt()
                 .system("""
                     You are a senior Java code reviewer.
-                    Review the code for: bugs, performance issues, 
+                    Review the code for: bugs, performance issues,\s
                     best practices, and security concerns.
                     Be specific and actionable.
-                    """)
+                   \s""")
                 .user("Review this code:\n\n" + code)
                 .call()
                 .content();

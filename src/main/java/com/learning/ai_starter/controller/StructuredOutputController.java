@@ -2,7 +2,6 @@ package com.learning.ai_starter.controller;
 
 import com.learning.ai_starter.model.CodeReviewResult;
 import com.learning.ai_starter.model.DeveloperProfile;
-import com.learning.ai_starter.model.MovieList;
 import com.learning.ai_starter.model.MovieRecommendation;
 import com.learning.ai_starter.service.StructuredOutputService;
 import lombok.RequiredArgsConstructor;
