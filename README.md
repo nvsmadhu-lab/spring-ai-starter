@@ -104,5 +104,5 @@ demonstrating core AI engineering concepts for Java developers.
 
 ## 📬 Connect
 
-Built by Mahesh — Senior Java Developer transitioning to AI Engineering
-LinkedIn: linkedin.com/in/YOUR_PROFILE
+Built by N V S Madhumitra — Senior Java Developer transitioning to AI Engineering
+LinkedIn: https://www.linkedin.com/in/nvsmadhumitra/
