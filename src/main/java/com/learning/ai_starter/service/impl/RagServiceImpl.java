@@ -1,5 +1,6 @@
 package com.learning.ai_starter.service.impl;
 
+import com.learning.ai_starter.exception.AiServiceException;
 import com.learning.ai_starter.service.RagService;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.document.Document;
@@ -49,12 +50,13 @@ public class RagServiceImpl implements RagService {
                     chunks.size(), file.getOriginalFilename()
             );
         } catch (Exception e) {
-            return "Failed to index document: " + e.getMessage();
+            throw new AiServiceException( "Failed to index document: " , e);
         }
     }
 
     @Override
     public String askQuestion(String question) {
+        try {
         return ragChatClient.prompt()
                 .user(question)
                 .call()
@@ -64,6 +66,9 @@ public class RagServiceImpl implements RagService {
         // 2. Searches vector DB for similar chunks
         // 3. Adds relevant chunks to prompt
         // 4. LLM answers using those chunks
+        } catch (Exception e) {
+            throw new AiServiceException("Failed to process RAG query", e);
+        }
     }
 
     @Override
@@ -77,7 +82,7 @@ public class RagServiceImpl implements RagService {
             vectorStore.add(chunks);
             return "Loaded " + chunks.size() + " chunks from classpath";
         } catch (Exception e) {
-            return "Failed: " + e.getMessage();
+            throw new AiServiceException( "Failed to load document: " , e);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.learning.ai_starter.service.impl;
 
+import com.learning.ai_starter.exception.AiServiceException;
 import com.learning.ai_starter.service.ToolsService;
 import com.learning.ai_starter.tools.DatabaseTools;
 import com.learning.ai_starter.tools.DateTimeTools;
@@ -22,6 +23,7 @@ public class ToolsServiceImpl implements ToolsService {
 
     @Override
     public String chatWithTools(String question) {
+        try{
         return chatClient.prompt()
                 .system("""
                     You are a helpful assistant with access to several tools:
@@ -44,10 +46,14 @@ public class ToolsServiceImpl implements ToolsService {
                 )
                 .call()
                 .content();
+        } catch (Exception e) {
+            throw new AiServiceException("Failed to process query", e);
+        }
     }
 
     @Override
     public String chatWithWeatherTools(String question) {
+        try{
         return chatClient.prompt()
                 .system("You are a weather assistant.")
                 .user(question)
@@ -56,5 +62,8 @@ public class ToolsServiceImpl implements ToolsService {
                 )
                 .call()
                 .content();
+        } catch (Exception e) {
+            throw new AiServiceException("Failed to process query", e);
+        }
     }
 }

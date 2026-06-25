@@ -1,5 +1,6 @@
 package com.learning.ai_starter.service.impl;
 
+import com.learning.ai_starter.exception.AiServiceException;
 import com.learning.ai_starter.service.MemoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
@@ -18,6 +19,7 @@ public class MemoryServiceImpl implements MemoryService {
 
     @Override
     public String chat(String sessionId, String message) {
+        try {
         return chatClientWithMemory.prompt()
                 .user(message)
                 .advisors(advisor -> advisor
@@ -25,5 +27,8 @@ public class MemoryServiceImpl implements MemoryService {
                         )
                 .call()
                 .content();
+        } catch (Exception e) {
+            throw new AiServiceException("Failed to process query", e);
+        }
     }
 }
